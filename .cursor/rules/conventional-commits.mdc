@@ -1,0 +1,48 @@
+---
+description: Use conventional commits format
+globs: "*"
+alwaysApply: false
+---
+
+<rule>
+name: conventional_commits
+description: Automatically format commit messages using conventional commits standard
+filters:
+  - type: content
+    pattern: "(?i)(commit|git commit)"
+  - type: intent
+    pattern: "commit_changes"
+
+actions:
+  - type: suggest
+    message: |
+      Format your commit message using conventional commits:
+      <type>(<scope>): <description>
+
+      Types:
+      - feat: New features
+      - fix: Bug fixes
+      - docs: Documentation changes
+      - style: Code style/formatting
+      - refactor: Code restructuring
+      - perf: Performance improvements
+      - test: Test-related changes
+      - chore: Maintenance tasks
+
+      Guidelines:
+      1. Use imperative mood in descriptions
+      2. Derive scope from file path/component
+      3. Keep descriptions clear and concise
+
+examples:
+  - input: "Committing changes to authentication function in src/auth/login.ts"
+    output: "feat(auth): implement user authentication"
+  - input: "Fixed date parsing bug in utils/date.js"
+    output: "fix(utils): correct date parsing logic"
+  - input: "Updated API documentation"
+    output: "docs: update API reference guide"
+
+metadata:
+  priority: high
+  version: 1.0
+</rule>

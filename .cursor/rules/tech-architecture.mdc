@@ -1,0 +1,68 @@
+---
+description: Technical architecture and technology choices for the project
+globs: "*"
+alwaysApply: false
+---
+
+<rule>
+  name: tech-architecture
+  description: Defines the technical stack, design patterns, and architecture decisions for the project
+  filters:
+    - type: intent
+      pattern: "tech stack|architecture|framework|libraries|technical decisions"
+  actions:
+    - type: suggest
+      message: |
+        # Technical Architecture
+
+        ## Programming Languages
+        - Primary: [Language]
+        - Secondary: [Language] (if applicable)
+        
+        ## Frameworks & Libraries
+        - Frontend: [Framework/Library]
+        - Backend: [Framework/Library]
+        - Testing: [Framework/Library]
+        - Other: [Additional libraries]
+        
+        ## Database
+        - Primary: [Database]
+        - Cache: [Cache solution] (if applicable)
+        
+        ## Infrastructure
+        - Hosting: [Hosting solution]
+        - CI/CD: [CI/CD pipeline]
+        - Containerization: [Container solution] (if applicable)
+        
+        ## Architecture Pattern
+        - [Architectural pattern, e.g., MVC, MVVM, Clean Architecture, etc.]
+        
+        ## Design Patterns
+        - [Design patterns to follow]
+        
+        ## API Design
+        - [API approach, e.g., REST, GraphQL, etc.]
+        
+        ## Performance Considerations
+        - [Performance requirements and approaches]
+        
+        ## Security Requirements
+        - [Security considerations and implementations]
+        
+        ## Scalability
+        - [Scalability considerations]
+        
+        ## Dependencies
+        - [Key dependencies and version requirements]
+        
+        ## Development Environment
+        - Required tools: [List of tools]
+        - Setup instructions: [Brief setup guide]
+  examples:
+    - input: "What frontend framework should we use?"
+      output: "According to our technical architecture, we're using [Frontend Framework] for the frontend part of the application."
+    - input: "How should we structure our database?"
+      output: "Our architecture specifies using [Database] with the following structure: [Database details from the architecture document]"
+  metadata:
+    version: 1.0
+</rule> 

@@ -1,0 +1,70 @@
+---
+description: Guidelines for starting a new project
+globs: "*"
+alwaysApply: false
+---
+
+<rule>
+  name: new-project-setup
+  description: Step-by-step process for initializing and structuring a new project
+  filters:
+    - type: intent
+      pattern: "new project|start project|create project|beginning project|initialize project"
+  actions:
+    - type: suggest
+      message: |
+        # New Project Setup Process
+
+        ## 1. Check Product Requirements Document
+        - Verify spec/prd.md exists and contains complete requirements
+        - Create spec directory if it doesn't exist
+        - If PRD is missing, help the user to create one otherwise we can't proceed
+
+        ## 2. Define Technical Architecture
+        - Create .cursor/rules/tech-architecture.mdc to define:
+          - Programming languages
+          - Frameworks/libraries
+          - Database choices
+          - Infrastructure requirements
+          - Design patterns to follow
+
+        ## 3. Initialize Git Repository
+        - Create a new git repository if one doesn't exist
+        - Add a proper .gitignore file for the chosen tech stack
+        - Make an initial commit
+
+        ## 4. Task Breakdown
+        - Break down the PRD into logical tasks/features
+        - Save tasks in spec/tasks.md with prioritization
+        - Assign task IDs and estimated complexity/time
+        
+        ## 5. Discovery Phase (First Task)
+        - Create spec/task-001-discovery.md as the first task
+        - List explicit assumptions to validate, including:
+          - Required package availability and compatibility
+          - Technical feasibility assessment
+          - Performance considerations
+          - Security requirements
+        - Document research areas requiring web searches
+        - Create proof-of-concept code for critical components
+        - Do not do any more than is necessary
+        
+        ## 6. Task Completion Process
+        - When a task is completed:
+          - Create spec/task-XXX-completed.md documenting the implementation
+          - Document any deviations from the original plan
+          - Make a git commit with a detailed message
+          - Update tasks.md to reflect progress
+        
+        ## 7. Project Organization
+        - Maintain clean project structure according to best practices
+        - Document architecture decisions in spec/architecture-decisions.md
+        - Keep a running log of challenges and solutions
+  examples:
+    - input: "I want to start a new project for a web application"
+      output: "Let's begin by checking if we have a PRD at spec/prd.md, then define the technical architecture, initialize git, and break down the tasks with a focus on an initial discovery phase."
+    - input: "Create a new website project"
+      output: "I'll help you set up a new website project following our structured approach: verifying/creating the PRD, defining architecture in tech-architecture.mdc, setting up git, breaking down tasks, and starting with a discovery phase."
+  metadata:
+    version: 1.0
+</rule> 

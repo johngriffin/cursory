@@ -1,0 +1,29 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+<rule>
+- Main spec is Product requirementvailable at @prd.md
+- Tasks are broken down in spec directory
+- Only work on one task at a time
+- When starting a task, ask any clarifying questions necessary before editing code, then add tests taking care to review and update/integrate with existing tests.
+- Focus only on code relevant to the task; !you never touch unrelated code.
+- Break complex tasks into logical stages; pause and ask for confirmation before next step.
+- Always prefer simple, elegant solutions (KISS principle).
+- Avoid duplication of code (DRY principle); check existing codebase first.
+- Only add functionality when explicitly needed (YAGNI principle).
+- !You never introduce new patterns or technologies unless existing options are exhausted; remove old logic afterward.
+- !You never overwrite .env without my explicit confirmation.
+
+# Definition of Done
+  1. all the functionality in task description has been implemented
+  2. tests for new feature are written and passing, old tests also passing
+  3. ensure code adheres to the code style guidelines and best practices
+
+Once a feature is done, make a commit to git.  You can initialize a local git repo if one doesn't already exist.
+
+# Bug fixes
+When you're asked to fix a bug, focus only on fixing the bug, do not introduce new functionality. If the bug is symptomatic of a greater flaw in the architecture then explain and give options for a) quick fix,  b) comprehensive fix.
+
+</rule>

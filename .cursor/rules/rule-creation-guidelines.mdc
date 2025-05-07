@@ -1,0 +1,72 @@
+---
+description: 
+globs: *.mdc
+alwaysApply: false
+---
+<rule>
+name: rule-creation-guidelines
+description: Guidelines for creating new Cursor rules
+filters:
+  - type: intent
+    pattern: "create.*rule|add.*rule|new.*rule"
+  - type: file_extension
+    pattern: "mdc"
+actions:
+  - type: suggest
+    message: |
+      Ensure your rule follows these requirements:
+
+      1. Frontmatter must only contain:
+         - description: Brief description
+         - globs: Pattern to match files
+         - alwaysApply: Boolean (optional)
+
+      2. Rule structure must be:
+         <rule>
+         name: kebab-case-name
+         description: Detailed purpose
+         filters:
+           - type: content|intent|file_extension
+             pattern: regex_pattern
+         actions:
+           - type: suggest|reject
+             message: Action message
+         examples:
+           - input: Example input
+             output: Expected output
+         metadata:
+           version: 1.0
+         </rule>
+
+      3. File requirements:
+         - Place in .cursor/rules/
+         - Use .mdc extension
+         - Use kebab-case filename
+         - No content outside <rule> tags
+         - No trailing spaces after </rule>
+examples:
+  - input: "Create a new rule for enforcing commit messages"
+    output: |
+      ---
+      description: Enforce commit message format
+      globs: ".git/COMMIT_EDITMSG"
+      ---
+
+      <rule>
+      name: commit-message-format
+      description: Ensures commit messages follow conventional commits
+      filters:
+        - type: content
+          pattern: "^[^:]+"
+      actions:
+        - type: suggest
+          message: "Use conventional commits format"
+      examples:
+        - input: "update readme"
+          output: "feat: update readme with installation steps"
+      metadata:
+        version: 1.0
+      </rule>
+metadata:
+  version: 1.0
+</rule>

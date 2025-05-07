@@ -1,0 +1,126 @@
+---
+description: Guidelines for task breakdown and completion
+globs: "spec/task-*.md"
+alwaysApply: false
+---
+
+<rule>
+  name: task-structure
+  description: Defines the structure and process for task breakdown, execution, and completion
+  filters:
+    - type: intent
+      pattern: "task|feature|implementation|complete task"
+    - type: file_extension
+      pattern: "md"
+  actions:
+    - type: suggest
+      message: |
+        # Task Structure Guidelines
+
+        ## Task Creation Format
+        Each task should be documented in `spec/task-XXX-name.md` with the following structure:
+
+        ```markdown
+        # Task XXX: [Task Name]
+
+        ## Objective
+        [Clear statement of what this task aims to achieve]
+
+        ## Requirements
+        - [Specific requirement 1]
+        - [Specific requirement 2]
+        - ...
+
+        ## Assumptions
+        - [Assumption 1]
+        - [Assumption 2]
+        - ...
+
+        ## Dependencies
+        - [Dependency 1]
+        - [Dependency 2]
+        - ...
+
+        ## Implementation Plan
+        1. [Step 1]
+        2. [Step 2]
+        3. ...
+
+        ## Estimated Complexity
+        [Low/Medium/High]
+
+        ```
+
+        ## Discovery Task (001) Format
+        The first task (discovery) should additionally include:
+
+        ```markdown
+        ## Research Areas
+        - [Research topic 1]
+        - [Research topic 2]
+        - ...
+
+        ## Technical Validation
+        - [Technical aspect to validate 1]
+        - [Technical aspect to validate 2]
+        - ...
+
+        ## Proof of Concept Requirements
+        - [POC requirement 1]
+        - [POC requirement 2]
+        - ...
+        ```
+
+        ## Task Completion Format
+        When a task is completed, create `spec/task-XXX-completed.md` with:
+
+        ```markdown
+        # Task XXX Completed: [Task Name]
+
+        ## Implementation Summary
+        [Summary of what was implemented]
+
+        ## Deviations from Plan
+        - [Deviation 1]
+        - [Deviation 2]
+        - ...
+
+        ## Challenges Encountered
+        - [Challenge 1]
+        - [Challenge 2]
+        - ...
+
+        ## Solutions Applied
+        - [Solution 1]
+        - [Solution 2]
+        - ...
+
+        ## Files Modified
+        - [File path 1]
+        - [File path 2]
+        - ...
+
+        ## Commit Message
+        [The git commit message used]
+
+        ## Next Steps
+        - [Next step 1]
+        - [Next step 2]
+        - ...
+        ```
+
+        ## Git Commit Format
+        Use conventional commits format:
+        ```
+        [type](task-XXX): [brief description]
+
+        [detailed description if needed]
+        ```
+  examples:
+    - input: "How should I format the discovery task?"
+      output: "The discovery task should be created as spec/task-001-discovery.md with sections for Objective, Requirements, Assumptions, Dependencies, Implementation Plan, Research Areas, Technical Validation, and Proof of Concept Requirements."
+    - input: "I've completed the authentication task, how do I document it?"
+      output: "Create a spec/task-XXX-completed.md file with sections for Implementation Summary, Deviations from Plan, Challenges Encountered, Solutions Applied, Files Modified, Commit Message, and Next Steps."
+  metadata:
+    version: 1.0
+</rule> 
